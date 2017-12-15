@@ -1,0 +1,25 @@
+From d74e9dc8c0a10d04fc78dd119581735b8d913fbb Mon Sep 17 00:00:00 2001
+From: Bhushan Shah <bhush94@gmail.com>
+Date: Fri, 15 Dec 2017 13:00:50 +0000
+Subject: [PATCH] Pull down required version to 1.8 for xenial
+
+---
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/configure.ac b/configure.ac
+index b1ef5fa..8b271f0 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -48,7 +48,7 @@ AG_GST_LIBTOOL_PREPARE
+ AS_LIBTOOL(GST, 1004, 0, 1004)
+ 
+ dnl *** required versions of GStreamer stuff ***
+-GST_REQ=1.10.0
++GST_REQ=1.8
+ 
+ dnl *** autotools stuff ****
+ 
+-- 
+2.7.4
+

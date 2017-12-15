@@ -1,0 +1,28 @@
+Source: gst-omx
+Priority: optional
+Maintainer: Ying-Chun Liu (PaulLiu) <paulliu@debian.org>
+Build-Depends: autotools-dev,
+               debhelper (>= 9),
+               docbook-xsl,
+               libgstreamer-plugins-base1.0-dev,
+               libgstreamer1.0-dev,
+               rename,
+               xsltproc
+Standards-Version: 3.9.8
+Section: libs
+Homepage: https://gstreamer.freedesktop.org/modules/gst-omx.html
+
+Package: gstreamer1.0-omx
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: OpenMax plugins for GStreamer
+ This plugin wraps available OpenMAX IL components and makes them available as
+ standard GStreamer elements.
+
+Package: gst-omx-listcomponents
+Architecture: any
+Section: utils
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: OpenMax plugins for GStreamer
+ This package contains listcomponents for listing components in openmax IL.
+ listcomponents is a debugging tool and should be only used for developers.

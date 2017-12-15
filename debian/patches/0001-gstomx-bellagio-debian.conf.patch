@@ -1,0 +1,39 @@
+Index: gst-omx-1.10.4/config/bellagio/gstomx.conf
+===================================================================
+--- gst-omx-1.10.4.orig/config/bellagio/gstomx.conf
++++ gst-omx-1.10.4/config/bellagio/gstomx.conf
+@@ -1,6 +1,6 @@
+ [omxmpeg4videodec]
+ type-name=GstOMXMPEG4VideoDec
+-core-name=/usr/local/lib/libomxil-bellagio.so.0
++core-name=/usr/lib/libomxil-bellagio.so.0
+ component-name=OMX.st.video_decoder.mpeg4
+ rank=257
+ in-port-index=0
+@@ -9,7 +9,7 @@ hacks=event-port-settings-changed-ndata-
+ 
+ [omxh264dec]
+ type-name=GstOMXH264Dec
+-core-name=/usr/local/lib/libomxil-bellagio.so.0
++core-name=/usr/lib/libomxil-bellagio.so.0
+ component-name=OMX.st.video_decoder.avc
+ rank=257
+ in-port-index=0
+@@ -18,7 +18,7 @@ hacks=event-port-settings-changed-ndata-
+ 
+ [omxmpeg4videoenc]
+ type-name=GstOMXMPEG4VideoEnc
+-core-name=/usr/local/lib/libomxil-bellagio.so.0
++core-name=/usr/lib/libomxil-bellagio.so.0
+ component-name=OMX.st.video_encoder.mpeg4
+ rank=0
+ in-port-index=0
+@@ -27,7 +27,7 @@ hacks=event-port-settings-changed-ndata-
+ 
+ [omxaacenc]
+ type-name=GstOMXAACEnc
+-core-name=/usr/local/lib/libomxil-bellagio.so.0
++core-name=/usr/lib/libomxil-bellagio.so.0
+ component-name=OMX.st.audio_encoder.aac
+ rank=0
+ in-port-index=0

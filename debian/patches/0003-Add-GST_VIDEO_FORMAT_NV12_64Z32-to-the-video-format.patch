@@ -1,0 +1,64 @@
+From 86ed076493bc0d2628c6f35e849afa627169f617 Mon Sep 17 00:00:00 2001
+From: Andrew den Exter <andrew.den.exter@jollamobile.com>
+Date: Thu, 29 May 2014 02:09:20 +0000
+Subject: [PATCH 03/14] Add GST_VIDEO_FORMAT_NV12_64Z32 to the video format
+ map. Contributes to JB#19560
+
+abranson: Also added FormatYUV420PackedSemiPlanar32m
+---
+ omx/gstomxvideo.c | 14 ++++++++++++--
+ 1 file changed, 12 insertions(+), 2 deletions(-)
+
+diff --git a/omx/gstomxvideo.c b/omx/gstomxvideo.c
+index 8a42c71..954f264 100644
+--- a/omx/gstomxvideo.c
++++ b/omx/gstomxvideo.c
+@@ -31,12 +31,17 @@
+ GST_DEBUG_CATEGORY (gst_omx_video_debug_category);
+ #define GST_CAT_DEFAULT gst_omx_video_debug_category
+ 
++enum {
++  QOMX_COLOR_FormatYUV420PackedSemiPlanar64x32Tile2m8ka = 0x7FA30C03,
++  QOMX_COLOR_FormatYUV420PackedSemiPlanar32m = 0x7FA30C04
++};
++
+ GstVideoFormat
+-gst_omx_video_get_format_from_omx (OMX_COLOR_FORMATTYPE omx_colorformat)
++gst_omx_video_get_format_from_omx (OMX_COLOR_FORMATTYPE color_format)
+ {
+   GstVideoFormat format;
+ 
+-  switch (omx_colorformat) {
++  switch ((gint) color_format) {
+     case OMX_COLOR_FormatL8:
+       format = GST_VIDEO_FORMAT_GRAY8;
+       break;
+@@ -46,6 +51,7 @@ gst_omx_video_get_format_from_omx (OMX_COLOR_FORMATTYPE omx_colorformat)
+       break;
+     case OMX_COLOR_FormatYUV420SemiPlanar:
+     case OMX_COLOR_FormatYUV420PackedSemiPlanar:
++    case QOMX_COLOR_FormatYUV420PackedSemiPlanar32m:
+       format = GST_VIDEO_FORMAT_NV12;
+       break;
+     case OMX_COLOR_FormatYUV422SemiPlanar:
+@@ -79,6 +85,9 @@ gst_omx_video_get_format_from_omx (OMX_COLOR_FORMATTYPE omx_colorformat)
+     case OMX_COLOR_Format24bitBGR888:
+       format = GST_VIDEO_FORMAT_BGR;
+       break;
++    case QOMX_COLOR_FormatYUV420PackedSemiPlanar64x32Tile2m8ka:
++      format = GST_VIDEO_FORMAT_NV12_64Z32;
++      break;
+     default:
+       format = GST_VIDEO_FORMAT_UNKNOWN;
+       break;
+@@ -109,6 +118,7 @@ gst_omx_video_get_supported_colorformats (GstOMXPort * port,
+ 
+   old_index = -1;
+   do {
++    GstVideoFormat format;
+     err =
+         gst_omx_component_get_parameter (comp,
+         OMX_IndexParamVideoPortFormat, &param);
+-- 
+2.14.1
+
