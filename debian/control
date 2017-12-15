@@ -1,7 +1,8 @@
 Source: gst-omx
 Priority: optional
 Maintainer: Ying-Chun Liu (PaulLiu) <paulliu@debian.org>
-Build-Depends: autotools-dev,
+Build-Depends: android-headers,
+               autotools-dev,
                debhelper (>= 9),
                docbook-xsl,
                libgstreamer-plugins-base1.0-dev,
