@@ -1,0 +1,24 @@
+From 65f52fbfb92e1cc2a53090926cb9cec726a76309 Mon Sep 17 00:00:00 2001
+From: Bhushan Shah <bhush94@gmail.com>
+Date: Fri, 9 Feb 2018 17:38:43 +0530
+Subject: [PATCH] link to hybris-common
+
+---
+ omx/Makefile.am | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/omx/Makefile.am b/omx/Makefile.am
+index d2bc117..105a1a1 100644
+--- a/omx/Makefile.am
++++ b/omx/Makefile.am
+@@ -84,6 +84,7 @@ libgstomx_la_LIBADD = \
+ 	-lgstaudio-@GST_API_VERSION@ \
+ 	-lgstpbutils-@GST_API_VERSION@ \
+ 	-lgstvideo-@GST_API_VERSION@ \
++	-lhybris-common \
+ 	$(GST_BASE_LIBS) \
+ 	$(GST_LIBS) \
+ 	$(GMODULE_NO_EXPORT_LIBS)
+-- 
+2.16.1
+
